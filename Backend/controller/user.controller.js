@@ -150,7 +150,7 @@ export const verifyEmailWithToken = TryCatch(async (req, res) => {
   user.verificationToken = null;
   await user.save();
 
-  res.redirect("http://localhost:3000/sign-in");
+  res.redirect("https://fit-and-flair-frontend.onrender.com/sign-in");
 });
 
 // // ✅ GOOGLE SIGN-IN
