@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axiosInstance from "../axios";
 import AdminNavbar from "./AdminNavbar";
+import Footer from './Footer'
 
 const AdminCategoryPage = () => {
   const [categories, setCategories] = useState([]);
@@ -225,6 +226,7 @@ const AdminCategoryPage = () => {
           }
         `}</style>
       </div>
+      <Footer/>
     </>
   );
 };

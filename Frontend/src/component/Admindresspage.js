@@ -6,6 +6,7 @@ import axiosInstance from "../axios";
 import { toast, ToastContainer, cssTransition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminNavbar from "./AdminNavbar";
+import Footer from './Footer'
 
 const SlideIn = cssTransition({
   enter: "slideInRight",
@@ -380,6 +381,7 @@ const Admindresspage = () => {
           ← Back to All Dresses
         </button>
       </div>
+      <Footer/>
     </>
   );
 };

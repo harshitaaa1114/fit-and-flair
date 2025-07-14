@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from './Footer'
 
 const DressGroupPage = () => {
   const { groupKey } = useParams();
@@ -44,7 +45,7 @@ const DressGroupPage = () => {
     }
   };
 
-  return (
+  return <>
     <div
       style={{
         padding: "40px 20px",
@@ -190,7 +191,8 @@ const DressGroupPage = () => {
         )}
       </div>
     </div>
-  );
+    <Footer/>
+  </>
 };
 
 export default DressGroupPage;

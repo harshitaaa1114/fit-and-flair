@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from './Footer'
 
 const requiredFields = [
   { key: "gender", question: "Please enter your gender (male/female):" },
@@ -355,6 +356,7 @@ if (currentPage === "recommendations") {
 
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

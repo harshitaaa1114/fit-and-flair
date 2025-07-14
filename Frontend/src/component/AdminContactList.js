@@ -4,6 +4,7 @@ import { FaEnvelope, FaUser, FaRegEdit, FaClock } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminNavbar from "./AdminNavbar"; // optional if you have it
+import Footer from "./Footer";
 
 const AdminContactMessages = () => {
   const [messages, setMessages] = useState([]);
@@ -57,6 +58,7 @@ const AdminContactMessages = () => {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

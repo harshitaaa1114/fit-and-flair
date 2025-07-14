@@ -11,7 +11,7 @@ const GoogleSignIn = () => {
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
-            const response = await fetch("http://localhost:3000/user/google-signin", {
+            const response = await fetch("https://fit-and-flair-frontend.onrender.com/user/google-signin", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

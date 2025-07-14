@@ -6,6 +6,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AdminNavbar from "./AdminNavbar";
+import Footer from './Footer'
 
 const cardData = [
   {
@@ -108,6 +109,7 @@ const AdminDashboard = () => {
         ))}
       </div>
     </div>
+    <Footer/>
   </>
 };
 

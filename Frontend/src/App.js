@@ -13,7 +13,7 @@ import BodyShapeCalculator from './component/BodyShapeCalculator.js';
 import Contact from './component/Contact';
 
 
-import Footer from './component/Footer.js';
+
 import AdminDashboard from './component/AdminDashboard.js';
 import AdminContactList from './component/AdminContactList.js'
 import AdminCategoryPage from "./component/Admincategorypage.js"; 
@@ -56,7 +56,7 @@ function App() {
          <Route path="/admin/group/:groupKey" element={<DressGroupPage />} />
          <Route path="/admindashboard" element={<AdminDashboard/>} />
      </Routes>
-     <Footer/>
+   
     
      </>
 }

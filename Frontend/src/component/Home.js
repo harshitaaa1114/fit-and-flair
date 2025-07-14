@@ -4,6 +4,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar.js";
+import Footer from "./Footer.js";
+
 
 function HomePage() {
   const navigate = useNavigate();
@@ -328,6 +330,7 @@ function HomePage() {
 
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
