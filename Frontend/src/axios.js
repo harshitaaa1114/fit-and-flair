@@ -12,7 +12,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000", // change this to your backend base URL
+  baseURL: "https://fit-and-flair.onrender.com", // change this to your backend base URL
   withCredentials: true, // if you use cookies/session
   headers: {
     "Content-Type": "application/json",
