@@ -17,31 +17,34 @@ const calculateShapeBackend = ({ shoulder, chest, waist, hip, height, gender }) 
   if (!allowedHeightUnits.includes(height.unit)) {
     throw new Error(`Height unit '${height.unit}' is invalid. Use only 'cm', 'inches', or 'feet'.`);
   }
-
-  const convertToCm = (value, unitType) => {
+const convertToCm = (value, unitType) => {
   if (unitType === "inches") {
     return parseFloat(value) * 2.54;
   }
 
   if (unitType === "feet") {
     if (typeof value === "string" && value.includes("'")) {
-      // Support "5'4" format
+      // Handle format like 5'10"
       const [feetStr, inchStr] = value.replace(/"/g, "").split("'");
       const feet = parseInt(feetStr);
       const inches = parseInt(inchStr || "0");
       return (feet * 30.48) + (inches * 2.54);
-    } else {
-      // Support decimal feet like 5.4
-      const numVal = parseFloat(value);
-      const feet = Math.floor(numVal);
-      const decimal = numVal - feet;
-      const inches = Math.round(decimal * 12);
+    } else if (typeof value === "string" && value.includes(".")) {
+      // Handle 5.10 as 5 feet 10 inches
+      const [feetStr, inchStr] = value.split(".");
+      const feet = parseInt(feetStr);
+      const inches = parseInt(inchStr || "0");
       return (feet * 30.48) + (inches * 2.54);
+    } else {
+      // Handle just feet (e.g., "6")
+      return parseFloat(value) * 30.48;
     }
   }
 
-  return parseFloat(value); // For 'cm'
+  return parseFloat(value); // cm
 };
+
+ 
 
 
   const s = convertToCm(shoulder.value, shoulder.unit);
