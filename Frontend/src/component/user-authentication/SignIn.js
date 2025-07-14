@@ -21,7 +21,7 @@ function SignIn() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/login",
+        "https://fit-and-flair.onrender.com/user/login",
         { email, password },
         { withCredentials: true }
       );
@@ -48,7 +48,7 @@ function SignIn() {
       const user = result.user;
 
       const response = await axios.post(
-        "http://localhost:5000/user/google-signin",
+        "https://fit-and-flair.onrender.com/user/google-signin",
         {
           name: user.displayName,
           email: user.email,

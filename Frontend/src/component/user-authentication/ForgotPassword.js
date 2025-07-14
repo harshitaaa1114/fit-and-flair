@@ -12,7 +12,7 @@ function ForgotPassword() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/user/forgot", { email });
+      const res = await axios.post("https://fit-and-flair.onrender.com/user/forgot", { email });
       alert(res.data.message);
       navigate("/reset-password");
     } catch (err) {

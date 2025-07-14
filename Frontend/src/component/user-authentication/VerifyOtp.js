@@ -18,7 +18,7 @@ function VerifyOtp() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/user/verify", {
+      const response = await axios.post("https://fit-and-flair.onrender.com/user/verify", {
         otp,
         activationToken,
       });

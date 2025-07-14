@@ -70,7 +70,7 @@ export default function BodyShapeApp() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/admin/get/categories");
+        const res = await axios.get("https://fit-and-flair.onrender.com/admin/get/categories");
         setCategories(res.data.categories || []);
       } catch (err) {
         console.error("Error fetching categories:", err);
@@ -90,7 +90,7 @@ useEffect(() => {
 
   const fetchRecommendedDresses = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/user/get-dresses-by-fields", {
+      const res = await axios.post("https://fit-and-flair.onrender.com/user/get-dresses-by-fields", {
         gender: formData.gender,
         bodyShape: result.bodyShape,
         heightRange: result.heightCategory,
@@ -141,7 +141,7 @@ useEffect(() => {
               navigate("/signin");
               return;
             }
-            const res = await axios.post("http://localhost:5000/body/body-shapes", newFormData, {
+            const res = await axios.post("https://fit-and-flair.onrender.com/body/body-shapes", newFormData, {
               headers: { Authorization: `Bearer ${token}` },
             });
             setResult(res.data);
@@ -311,7 +311,7 @@ if (currentPage === "recommendations") {
 >
 
        <img
-  src={`http://localhost:5000/${dress.image}`}
+  src={`https://fit-and-flair.onrender.com/${dress.image}`}
   alt={dress.title}
   style={{
     width: isMobile ? "100%" : "220px",

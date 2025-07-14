@@ -16,7 +16,7 @@ function AdminSignIn() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/admin/login", {
+      const response = await axios.post("https://fit-and-flair.onrender.com/admin/login", {
         email,
         password,
       });

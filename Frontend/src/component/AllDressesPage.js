@@ -343,7 +343,7 @@ const AllDressesPage = () => {
                 {groupDresses.map((dress) => (
                   <div key={dress._id} style={styles.dressCard}>
                     <img
-                      src={`http://localhost:5000/${dress.image}`}
+                      src={`https://fit-and-flair.onrender.com/${dress.image}`}
                       alt={dress.title}
                       style={styles.dressImage}
                     />

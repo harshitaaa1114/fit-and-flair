@@ -15,7 +15,7 @@ function ResetPassword() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/user/reset", {
+      const res = await axios.post("https://fit-and-flair.onrender.com/user/reset", {
         email,
         otp,
         newPassword,

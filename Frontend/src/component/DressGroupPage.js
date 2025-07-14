@@ -112,7 +112,7 @@ const DressGroupPage = () => {
               }}
             >
               <img
-                src={`http://localhost:5000/${dress.image}`}
+                src={`https://fit-and-flair.onrender.com/${dress.image}`}
                 alt={dress.title}
                 style={{
                   width: "200px",

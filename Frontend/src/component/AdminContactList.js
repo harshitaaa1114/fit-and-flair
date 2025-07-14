@@ -11,7 +11,7 @@ const AdminContactMessages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/form/admin/contacts");
+        const res = await axios.get("https://fit-and-flair.onrender.com/form/admin/contacts");
         setMessages(res.data.data);
       } catch (err) {
         toast.error("Failed to fetch contact messages.");
