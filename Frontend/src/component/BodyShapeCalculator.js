@@ -7,11 +7,11 @@ import Footer from './Footer'
 
 const requiredFields = [
   { key: "gender", question: "Please enter your gender (male/female):" },
-  { key: "shoulder", question: "Enter your shoulder measurement with unit (e.g., 40 cm):" },
-  { key: "chest", question: "Enter your chest measurement with unit (e.g., 90 cm):" },
-  { key: "waist", question: "Enter your waist measurement with unit (e.g., 70 cm):" },
-  { key: "hip", question: "Enter your hip measurement with unit (e.g., 95 cm):" },
-  { key: "height", question: "Enter your height with unit (e.g., 170 cm):" },
+  { key: "shoulder", question: "Enter your shoulder measurement with unit (e.g., 40 cm or 20 inches):" },
+  { key: "chest", question: "Enter your chest measurement with unit (e.g., 90 cm or 21 inches):" },
+  { key: "waist", question: "Enter your waist measurement with unit (e.g., 70 cm or 22 inches):" },
+  { key: "hip", question: "Enter your hip measurement with unit (e.g., 95 cm or 50 inches):" },
+  { key: "height", question: "Enter your height with unit (e.g., 170 cm, 64 inches, 5.10 feet):" },
 ];
 
 function parseValueUnit(input) {
