@@ -83,7 +83,7 @@ const AdminCategoryPage = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axiosInstance.get("/admin/get/categories");
+      const res = await axiosInstance.get("https://fit-and-flair.onrender.com/admin/get/categories");
       setCategories(res.data.categories || []);
     } catch (err) {
       alert("Failed to load categories");
@@ -98,10 +98,10 @@ const AdminCategoryPage = () => {
     if (!newCategory.trim()) return alert("Enter category name");
     try {
       if (editingId) {
-        await axiosInstance.put(`/admin/update/category/${editingId}`, { categoryName: newCategory });
+        await axiosInstance.put(`https://fit-and-flair.onrender.com/admin/update/category/${editingId}`, { categoryName: newCategory });
         setEditingId(null);
       } else {
-        await axiosInstance.post("/admin/create/category", { categoryName: newCategory });
+        await axiosInstance.post("https://fit-and-flair.onrender.com/admin/create/category", { categoryName: newCategory });
       }
       setNewCategory("");
       fetchCategories();
@@ -112,7 +112,7 @@ const AdminCategoryPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axiosInstance.delete(`/admin/delete/category/${id}`);
+      await axiosInstance.delete(`https://fit-and-flair.onrender.com/admin/delete/category/${id}`);
       fetchCategories();
     } catch (err) {
       alert("Failed to delete category");
