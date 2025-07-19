@@ -35,7 +35,7 @@ const ContactPage = () => {
     e.preventDefault();
 
     if (!isValidEmail(formData.email)) {
-      toast.error("❌ Please enter a valid email.");
+      toast.error(" Please enter a valid email.");
       return;
     }
 
@@ -48,13 +48,13 @@ const ContactPage = () => {
 
       const data = await res.json();
       if (res.ok) {
-        toast.success("✅ Message sent successfully!");
+        toast.success("Message sent successfully!");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        toast.error(data.message || "❌ Submission failed.");
+        toast.error(data.message || " Submission failed.");
       }
     } catch (error) {
-      toast.error("❌ Server error. Please try again.");
+      toast.error(" Server error. Please try again.");
     }
   };
 
@@ -86,7 +86,7 @@ const ContactPage = () => {
       <div style={styles.page}>
         <ToastContainer />
         <div style={styles.container} className="contact-container">
-          {/* Left Column with Image */}
+         
           <div style={styles.left}>
             <div style={styles.overlay}>
               <h2 style={styles.heading}>Get in Touch</h2>
@@ -102,7 +102,6 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
           <form onSubmit={handleSubmit} style={styles.form}>
             {[
               { label: "Full Name", icon: <FaUser />, name: "name", type: "text", placeholder: "Enter full name" },

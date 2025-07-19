@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import { userdetail } from "./model/user.model.js"; // adjust the path if needed
+import { userdetail } from "./model/user.model.js"; 
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const run = async () => {
 
   const adminExists = await userdetail.findOne({ email: "admin@gmail.com" });
   if (adminExists) {
-    console.log("Admin already exists ✅");
+    console.log("Admin already exists ");
     return process.exit();
   }
 
@@ -24,7 +24,7 @@ const run = async () => {
     isVerified: true
   });
 
-  console.log("✅ Admin created");
+  console.log(" Admin created");
   process.exit();
 };
 

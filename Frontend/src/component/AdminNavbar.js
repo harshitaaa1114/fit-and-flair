@@ -27,9 +27,8 @@ function AdminNavbar() {
    
   ];
 
-  // 👇 Optional role redirect — you can change label or action
   const handleRoleNavigate = () => {
-    navigate("/role"); // Change this route as needed
+    navigate("/role"); 
   };
 
   return (

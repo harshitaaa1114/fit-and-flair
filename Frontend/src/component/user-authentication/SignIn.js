@@ -1,6 +1,4 @@
 
-
-
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
@@ -15,7 +13,6 @@ function SignIn() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
-  // ✅ Handle Email/Password Login
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -25,12 +22,8 @@ function SignIn() {
         { email, password },
         { withCredentials: true }
       );
-
-      // ✅ Save token to localStorage
       sessionStorage.setItem("token", response.data.token);
-      window.location.reload(); // ✅ Force navbar to recheck login
-
-
+      window.location.reload(); 
       alert(response.data.message);
       navigate("/home");
     } catch (error) {
@@ -41,7 +34,7 @@ function SignIn() {
     }
   };
 
-  // ✅ Handle Google Login
+  
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -57,7 +50,7 @@ function SignIn() {
       );
 
       sessionStorage.setItem("token", response.data.token);
-      // window.location.reload(); // ✅ Force navbar to recheck login
+      
 
 
       alert(response.data.message);

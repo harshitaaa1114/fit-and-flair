@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import { Category } from "./category.model.js"; // Make sure this path is correct
-
+import { Category } from "./category.model.js"; 
 const validHeightRanges = ["short", "average", "tall"];
 const validGenders = ["male", "female"];
 const validBodyShapes = {
@@ -19,9 +18,7 @@ const dressSchema = new mongoose.Schema({
   bodyShape: {
     type: String,
     required: true,
-    lowercase: true, // convert input to lowercase
-    // ❌ Removed faulty validator using `this.gender`
-    // ✅ Controller will handle this check
+    lowercase: true,
   },
 
   heightRange: {
@@ -37,7 +34,6 @@ const dressSchema = new mongoose.Schema({
     lowercase: true,
     validate: {
       validator: async function (value) {
-        // ✅ Match case-insensitively
         const exists = await Category.findOne({ categoryName: new RegExp(`^${value}$`, "i") });
         return !!exists;
       },
@@ -67,7 +63,6 @@ const dressSchema = new mongoose.Schema({
 
 export const Dress = mongoose.model("Dress", dressSchema);
 
-// Export enums for controller/frontend
 export const DressEnums = {
   heightRanges: validHeightRanges,
   bodyShapes: validBodyShapes,

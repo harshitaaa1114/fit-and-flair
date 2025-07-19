@@ -1,13 +1,12 @@
 
 
 
-import { userdetail } from "../model/user.model.js"; // direct import without aliasing
+import { userdetail } from "../model/user.model.js"; 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import sendMail, { sendForgotMail } from "../middlewares/sendMail.js";
 import TryCatch from "../middlewares/TryCatch.js";
 
-// ✅ REGISTER with OTP
 export const register = TryCatch(async (req, res) => {
   const { email, name, password } = req.body;
 
@@ -36,7 +35,6 @@ export const register = TryCatch(async (req, res) => {
   });
 });
 
-// ✅ VERIFY Email with OTP
 export const verifyUser = TryCatch(async (req, res) => {
   const { otp, activationToken } = req.body;
 
@@ -77,14 +75,12 @@ export const loginUser = TryCatch(async (req, res) => {
 });
 
 
-// ✅ MY PROFILE
 export const myProfile = TryCatch(async (req, res) => {
   const user = await userdetail.findById(req.user._id).select("-password");
   res.status(200).json({ user });
 });
 
 
-// ✅ FORGOT PASSWORD - send OTP
 export const forgotPassword = TryCatch(async (req, res) => {
   const { email } = req.body;
 
@@ -100,7 +96,6 @@ export const forgotPassword = TryCatch(async (req, res) => {
   res.json({ message: "OTP has been sent to your email." });
 });
 
-// ✅ RESET PASSWORD
 export const resetPassword = TryCatch(async (req, res) => {
   const { email, otp, newPassword } = req.body;
 
@@ -123,7 +118,6 @@ export const resetPassword = TryCatch(async (req, res) => {
   res.json({ message: "Password has been reset successfully." });
 });
 
-// ✅ FORGOT PASSWORD - Resend OTP
 export const resendotp = TryCatch(async (req, res) => {
   const { email } = req.body;
 
@@ -139,7 +133,6 @@ export const resendotp = TryCatch(async (req, res) => {
   res.json({ message: "OTP has been resent to your email." });
 });
 
-// ✅ VERIFY EMAIL BY TOKEN
 export const verifyEmailWithToken = TryCatch(async (req, res) => {
   const { token } = req.params;
   const user = await userdetail.findOne({ verificationToken: token });
@@ -153,29 +146,7 @@ export const verifyEmailWithToken = TryCatch(async (req, res) => {
   res.redirect("https://fit-and-flair-frontend.onrender.com/sign-in");
 });
 
-// // ✅ GOOGLE SIGN-IN
-// export const googleSignInAction = TryCatch(async (req, res) => {
-//   const { email, name } = req.body;
 
-//   let user = await userdetail.findOne({ email });
-
-//   if (!user) {
-//     user = new userdetail({
-//       name,
-//       email,
-//       role: "user",
-//       isVerified: true,
-//       googleSignIn: true,
-//       password: "",
-//     });
-//     await user.save({ validateBeforeSave: false });
-//   }
-
-//   req.session.userId = user._id;
-//   user.password = undefined;
-
-//   res.status(200).json({ message: "Google Sign-in Success", user });
-// });
 
 export const googleSignInAction = TryCatch(async (req, res) => {
   const { email, name } = req.body;
@@ -209,7 +180,6 @@ export const loginAdmin = TryCatch(async (req, res) => {
   const { email, password } = req.body;
   console.log("Received email:", email);
 
-  // Check for fixed admin email
   if (email !== "admin@gmail.com") {
     
     return res.status(403).json({ message: "Access denied" });

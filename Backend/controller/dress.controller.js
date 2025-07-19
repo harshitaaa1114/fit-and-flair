@@ -9,35 +9,35 @@ export const createOrUpdateDress = async (req, res) => {
   console.log("REQ FILE:", file);
   console.log("REQ BODY:", req.body);
 
-  // Validation for missing fields
+  
   if (!file || !title || !description || !gender || !bodyShape || !heightRange || !category) {
     return res.status(400).json({ message: "All fields including image file are required" });
   }
 
-  // Clean & lowercased values for validation
+  
   const genderLC = gender.toLowerCase();
   const bodyShapeLC = bodyShape.toLowerCase();
   const heightLC = heightRange.toLowerCase();
   const categoryLC = category.toLowerCase();
 
-  // Validation 1: Gender
+  
   if (!DressEnums.genders.includes(genderLC)) {
     return res.status(400).json({ message: "Invalid gender" });
   }
 
-  // Validation 2: Body shape for gender
+  
   if (!DressEnums.bodyShapes[genderLC].includes(bodyShapeLC)) {
     return res.status(400).json({
       message: `Invalid body shape '${bodyShape}' for selected gender '${gender}'`,
     });
   }
 
-  // Validation 3: Height range
+  
   if (!DressEnums.heightRanges.includes(heightLC)) {
     return res.status(400).json({ message: `Invalid height range '${heightRange}'` });
   }
 
-  // Validation 4: Category exists
+  
   const categoryExists = await Category.findOne({ categoryName: new RegExp(`^${category}$`, "i") });
   if (!categoryExists) {
     return res.status(400).json({ message: `Category '${category}' does not exist` });
@@ -45,9 +45,8 @@ export const createOrUpdateDress = async (req, res) => {
 
   try {
      const image = file.path.replace(/\\/g, "/");
-    // 🟢 Use `image` field, not imageUrl
+    
 
-    // Check for existing group
     let existing = await Dress.findOne({
       gender: genderLC,
       bodyShape: bodyShapeLC,
@@ -74,7 +73,6 @@ export const createOrUpdateDress = async (req, res) => {
       return res.status(200).json({ message: "Dress updated", data: existing });
     }
 
-    // Create new group
     const newDress = await Dress.create({
       gender: genderLC,
       bodyShape: bodyShapeLC,
@@ -138,10 +136,9 @@ export const getDressById = async (req, res) => {
       return res.status(404).json({ message: "Dress not found." });
     }
 
-    // ➡ Combine group fields into the dress object
     res.status(200).json({
       dress: {
-        ...dress.toObject(),  // Ensure it's a plain JS object
+        ...dress.toObject(),  
         gender: group.gender,
         bodyShape: group.bodyShape,
         heightRange: group.heightRange,
@@ -159,12 +156,10 @@ export const deleteDressById = async (req, res) => {
   try {
     const { id } = req.params;
   
-    // Ensure ID is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: "Invalid ID format" });
     }
 
-    // Find the group containing this dress
    
     const group = await Dress.findOne({ "dresses._id": id });
 
@@ -173,7 +168,6 @@ export const deleteDressById = async (req, res) => {
       return res.status(404).json({ message: "Dress not found" });
     }
 
-    // Remove the dress from the dresses array
     const updated = await Dress.updateOne(
       { _id: group._id },
       { $pull: { dresses: { _id: id } } }
@@ -241,7 +235,6 @@ export const deleteDressById = async (req, res) => {
       return res.status(404).json({ message: "Dress not found" });
     }
 
-    // Update fields
     dress.title = req.body.title;
     dress.description = req.body.description;
     console.log("deress path",req.file);
@@ -345,7 +338,6 @@ export const deleteDressById = async (req, res) => {
     }
   };
 
- // POST /user/get-dresses-by-fields
 export const getUserRecommendedDresses = async (req, res) => {
   const { gender, bodyShape, heightRange, category } = req.body;
 

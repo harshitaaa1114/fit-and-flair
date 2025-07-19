@@ -1,11 +1,8 @@
 
-
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { signup } from "../../apis"; // Your custom API handler
-
+import { signup } from "../../apis"; 
 import Navbar from '../Navbar';
 
 function SignUp() {
@@ -15,7 +12,6 @@ function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -23,11 +19,8 @@ function SignUp() {
       const response = await signup({ name, email, password });
 
       alert(response.data.message);
-
-      // ✅ Save activationToken for OTP verification page
       sessionStorage.setItem("activationToken", response.data.activationToken);
-
-      navigate("/verify-otp");
+       navigate("/verify-otp");
     } catch (error) {
       console.error("Signup Error:", error);
       alert(error.response?.data?.message || "Signup failed");
@@ -68,7 +61,7 @@ function SignUp() {
           </h3>
 
           <form onSubmit={handleSubmit}>
-            {/* Name */}
+            
             <div style={{ marginBottom: "15px", textAlign: "left" }}>
               <label htmlFor="name" style={{ fontWeight: "bold", color: "#5D432C" }}>
                 Name
@@ -90,7 +83,7 @@ function SignUp() {
               />
             </div>
 
-            {/* Email */}
+  
             <div style={{ marginBottom: "15px", textAlign: "left" }}>
               <label htmlFor="email" style={{ fontWeight: "bold", color: "#5D432C" }}>
                 Email
@@ -112,7 +105,7 @@ function SignUp() {
               />
             </div>
 
-            {/* Password */}
+           
             <div style={{ marginBottom: "15px", textAlign: "left" }}>
               <label htmlFor="password" style={{ fontWeight: "bold", color: "#5D432C" }}>
                 Password
@@ -134,7 +127,7 @@ function SignUp() {
               />
             </div>
 
-            {/* Sign Up Button */}
+           
             <button
               type="submit"
               style={{
@@ -151,7 +144,7 @@ function SignUp() {
               Sign Up
             </button>
 
-            {/* Navigation Link */}
+            
             <p style={{ marginTop: "5px", color: "#5D432C" }}>
               Already have an account?{" "}
               <Link to="/signin" style={{ fontWeight: "bold", color: "#000" }}>

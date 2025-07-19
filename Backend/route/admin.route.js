@@ -1,6 +1,4 @@
 
-
-
 import express from "express";
 import {
   createOrUpdateDress,
@@ -12,10 +10,6 @@ import {
   updateDressByTitle,
   getDressByTitle,
   getDressById,
-  
-  
-  
-  
 } from "../controller/dress.controller.js";
 
 import {
@@ -25,18 +19,6 @@ import {
   deleteAllCategories,
   deleteCategory
 } from "../controller/category.controller.js";
-
-import {
-  createOrUpdateStyle,
-  getAllStyles,
-  getStyleById,
-  deleteGoalFromCategory,
-  updateGoal,
-  deleteAllStyles,
-  updateCategoryInfo,
-  getStylesByCategory,
-  getStylesByGender
-} from "../controller/howtostyle.controller.js";
 
 import { loginAdmin } from "../controller/user.controller.js";
 import { DressEnums } from "../model/dress.model.js";
@@ -62,10 +44,6 @@ router.post("/get/dress/:title", getDressByTitle);
 router.get("/get/dress/:id", getDressById);
 router.post("/delete/group", deleteGroupByFields);
 
-
-
-
-
 // Category Routes
 router.post("/create/category", createCategory);
 router.get("/get/categories", getAllCategories);
@@ -84,16 +62,5 @@ router.get("/get/bodyshapes/:gender", (req, res) => {
   if (!bodyShapes) return res.status(400).json({ message: "Invalid gender" });
   res.json({ bodyShapes });
 });
-
-// How to Style Routes
-router.post("/style/create", createOrUpdateStyle);
-router.get("/style/get-all/:gender", getAllStyles);
-router.get("/style/get/:id", getStyleById);
-router.delete("/style/delete-goal/:category", deleteGoalFromCategory);
-router.put("/style/update-goal/:id", updateGoal);
-router.delete("/style/delete-all/:gender", deleteAllStyles);
-router.put("/style/update/:id", updateCategoryInfo);
-router.get("/style/get-by-category/:category", getStylesByCategory);
-router.get("/style/get-by-gender/:gender", getStylesByGender);
 
 export default router;

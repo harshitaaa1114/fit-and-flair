@@ -5,13 +5,11 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// Ensure uploads/ folder exists
 const uploadDir = "uploads/";
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-// Configure storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, uploadDir);
@@ -23,7 +21,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// Validate only JPG and PNG
 const fileFilter = (req, file, cb) => {
   const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
   if (allowedTypes.includes(file.mimetype)) {
@@ -33,11 +30,10 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Final export
 export const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 5 * 1024 * 1024, // Optional: limit to 5MB
+    fileSize: 5 * 1024 * 1024, 
   },
 });

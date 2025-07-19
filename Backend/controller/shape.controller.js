@@ -30,13 +30,11 @@ const convertToCm = (value, unitType) => {
       const inches = parseInt(inchStr || "0");
       return (feet * 30.48) + (inches * 2.54);
     } else if (typeof value === "string" && value.includes(".")) {
-      // Handle 5.10 as 5 feet 10 inches
       const [feetStr, inchStr] = value.split(".");
       const feet = parseInt(feetStr);
       const inches = parseInt(inchStr || "0");
       return (feet * 30.48) + (inches * 2.54);
     } else {
-      // Handle just feet (e.g., "6")
       return parseFloat(value) * 30.48;
     }
   }
@@ -170,7 +168,7 @@ export const calculateShape = async (req, res) => {
     return res.status(200).json({
       id: created._id,
       gender,
-      height: `${height.value} ${height.unit}`,  // ✅ THIS LINE IS ADDED
+      height: `${height.value} ${height.unit}`,  
       heightCategory,
       bodyShape: shape,
       recommendation

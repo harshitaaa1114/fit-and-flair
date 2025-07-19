@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../axios";
@@ -135,7 +134,7 @@ const Admindresspage = () => {
         });
       } else {
         if (!form.imageFile) {
-          toast.warning("⚠️ Please select an image", {
+          toast.warning(" Please select an image", {
             position: "bottom-right",
             style: { backgroundColor: "#d35400", color: "#fff" },
             transition: SlideIn,
@@ -165,7 +164,7 @@ const Admindresspage = () => {
 
       setTimeout(() => navigate("/admin/all-dresses"), 1500);
     } catch (err) {
-      toast.error("❌ Error saving dress", {
+      toast.error(" Error saving dress", {
         position: "bottom-right",
         transition: SlideIn,
         autoClose: 2000,

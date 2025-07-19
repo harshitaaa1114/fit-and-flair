@@ -153,7 +153,7 @@ const About = () => {
   </>
 };
 
-// Section data
+
 const sectionsData = [
   {
     title: "The Problem",
@@ -205,7 +205,7 @@ const sectionsData = [
   },
 ];
 
-// Styles
+
 const styles = {
   wrapper: {
     padding: "40px 20px",

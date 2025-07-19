@@ -1,4 +1,4 @@
-// src/components/DressCategoryPage.js
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer'
@@ -9,7 +9,7 @@ const DressCategoryPage = ({ title, dresses }) => {
   return <>
     <div style={{ padding: '40px', backgroundColor: '#fdf3dd', minHeight: '100vh' }}>
       <button
-        onClick={() => navigate(-1)} // Go back to the previous page (Result Page)
+        onClick={() => navigate(-1)} 
         style={backButtonStyle}
       >
         ← Back

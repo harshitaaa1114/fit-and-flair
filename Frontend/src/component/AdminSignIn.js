@@ -1,6 +1,4 @@
 
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -23,7 +21,7 @@ function AdminSignIn() {
 
       alert(response.data.message);
       sessionStorage.setItem("adminToken", response.data.token);
-      navigate("/admindashboard"); // Adjust route as needed
+      navigate("/admindashboard"); 
     } catch (error) {
       console.error("Login error:", error);
       alert(error.response?.data?.message || "Admin login failed");

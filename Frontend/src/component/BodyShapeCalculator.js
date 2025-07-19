@@ -426,15 +426,15 @@ const styles = {
   },
   fullPageBackground: {
   minHeight: "100vh",
-  width: "100vw",            // ✔️ Full viewport width
+  width: "100vw",            
   background: "linear-gradient(135deg, #ffe7d1 0%, #e6c1a8 100%)",
   paddingTop: 60,
   paddingBottom: 100,
   paddingLeft: "10px",
   paddingRight: "10px",
-  margin: "0",                // ✔️ Remove default margins
-  boxSizing: "border-box",    // ✔️ Include padding in width
-  overflowX: "hidden",        // ✔️ Hide unwanted scroll
+  margin: "0",                
+  boxSizing: "border-box",    
+  overflowX: "hidden",       
 },
 
   recommendationContent: {

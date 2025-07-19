@@ -40,7 +40,7 @@ const DressGroupPage = () => {
       setDresses((prev) => prev.filter((d) => d._id !== id));
       toast.success("✔ Dress deleted");
     } catch (err) {
-      toast.error("❌ Failed to delete dress");
+      toast.error(" Failed to delete dress");
       console.error("Delete error", err);
     }
   };
@@ -153,7 +153,7 @@ const DressGroupPage = () => {
   style={{
     display: "flex",
     gap: "20px",
-    overflowX: "auto", // enables horizontal scroll
+    overflowX: "auto", 
     padding: "10px 0",
   }}
 >

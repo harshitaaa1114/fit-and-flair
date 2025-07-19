@@ -44,7 +44,7 @@ function Navbar() {
     { to: "/about", label: "About" },
     { to: "/bodyshapecalculator", label: "Calculator" },
     { to: "/contact", label: "Contact" },
-     { to: "/adminsignin", label: "Admin" },
+    { to: "/adminsignin", label: "Admin" },
   ];
 
   return (
@@ -65,7 +65,6 @@ function Navbar() {
         }}
       >
         <div className="container-fluid px-3">
-          {/* Logo */}
           <Link
             className="navbar-brand"
             to="/"
@@ -92,7 +91,6 @@ function Navbar() {
             <span style={{ color: "#944a1f", fontWeight: "bold" }}>FLAIR</span>
           </Link>
 
-          {/* Toggle Button with Custom Icon */}
           <button
             className="navbar-toggler"
             type="button"
@@ -115,7 +113,6 @@ function Navbar() {
             </div>
           </button>
 
-          {/* Nav Links */}
           <div
             className="collapse navbar-collapse justify-content-end"
             id="navbarMenu"

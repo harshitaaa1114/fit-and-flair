@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-
-
 const RoleSelection = () => {
   const navigate = useNavigate();
 
@@ -61,7 +59,7 @@ const styles = {
   title: {
     fontSize: "60px",
     fontWeight: "700",
-    color: "#4a2c2a", // single tone
+    color: "#4a2c2a", 
     marginBottom: "40px",
     lineHeight: "1.2",
     letterSpacing: "3px",
@@ -87,7 +85,7 @@ const styles = {
   cardText: {
     fontSize: "1.5rem",
     fontWeight: "600",
-    color: "#ff6b6b", // pinkish elegant color
+    color: "#ff6b6b", 
     letterSpacing: "2px",
   },
 };

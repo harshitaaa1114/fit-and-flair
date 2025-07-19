@@ -1,5 +1,4 @@
 
-
 import express from "express";
 import { submitContactForm,getAllContacts,
  } from "../controller/contact.controller.js";

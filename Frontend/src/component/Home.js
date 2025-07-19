@@ -90,14 +90,14 @@ function HomePage() {
       justifyContent: "center",
       gap: "30px",
       marginTop: "20px",
-    
+
     },
     card: {
       width: "280px",
       background: "rgba(255, 255, 255, 0.9)",
       borderRadius: "16px",
       padding: "20px",
-      
+
       boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
       textAlign: "left",
       transition: "transform 0.3s ease",
@@ -144,12 +144,12 @@ function HomePage() {
     <>
       <Navbar />
       <div style={styles.page}>
-        {/* Hero Section */}
+
         <div style={styles.hero}>
           <div style={styles.left}>
             <h1 style={styles.heading}>Know Your <span style={styles.highlight}>Body Shape</span></h1>
             <p style={styles.text}>Find your perfect fit. Discover clothing styles designed to suit your unique body shape and height, personalized just for you.</p>
-            
+
             <button
               onClick={gotobodyshapecalculator}
               style={styles.button}
@@ -168,22 +168,20 @@ function HomePage() {
           />
         </div>
 
-       
-          {/* How It Works Section */}
-<div style={styles.section}>
-  <div style={{ textAlign: "center", marginBottom: "2px" }}>
-    <img src="/assets/image.png" alt="Magic Styling" style={{ height: "100px" }} />
-  </div>
-  <p style={{ textAlign: "center", color: "#aa6c5c", fontWeight: "600", fontSize: "18px", marginBottom: "8px" }}>
-    Simple • Smart • Styled Just for You
-  </p>
-  <h2 style={styles.sectionTitle}>
-    <span style={{ borderBottom: "3px solid #ff6b6b", paddingBottom: "6px" }}>How It Works</span>
-  </h2>
 
-  {/* Cards follow... */}
+        <div style={styles.section}>
+          <div style={{ textAlign: "center", marginBottom: "2px" }}>
+            <img src="/assets/image.png" alt="Magic Styling" style={{ height: "100px" }} />
+          </div>
+          <p style={{ textAlign: "center", color: "#aa6c5c", fontWeight: "600", fontSize: "18px", marginBottom: "8px" }}>
+            Simple • Smart • Styled Just for You
+          </p>
+          <h2 style={styles.sectionTitle}>
+            <span style={{ borderBottom: "3px solid #ff6b6b", paddingBottom: "6px" }}>How It Works</span>
+          </h2>
 
-          
+
+
           <p style={styles.sectionText}>From measurements to magic — here's how Fit & Flair transforms your wardrobe journey into a personalized styling experience.</p>
           <div style={styles.cardsWrapper}>
             <div style={styles.card}>
@@ -204,12 +202,14 @@ function HomePage() {
           </div>
         </div>
 
-        {/* Body Shape Section */}
+
         <div style={styles.section}>
-          <h2 style={{ ...styles.heading, fontSize: "32px",
-    marginTop: "60px", }}>
-    Understanding <span style={styles.highlight}>Body Shape</span>
-  </h2>
+          <h2 style={{
+            ...styles.heading, fontSize: "32px",
+            marginTop: "60px",
+          }}>
+            Understanding <span style={styles.highlight}>Body Shape</span>
+          </h2>
           <p style={styles.sectionText}>Each body is unique — and that’s what makes it beautiful. Understanding your body shape helps you embrace it and dress with confidence. Male shapes tend to be straighter and broader, while female shapes feature more curves and variation.</p>
 
           <div style={{ marginTop: '30px' }}>
@@ -219,24 +219,24 @@ function HomePage() {
                 setShowFemaleShapes(e.target.value === "female");
               }}
               defaultValue=""
-             style={{
-    backgroundColor: "#f7f7f7",
-    color: "#333",
-    padding: "10px 16px",
-    fontSize: "16px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    appearance: "none",
-    WebkitAppearance: "none",
-    MozAppearance: "none",
-    cursor: "pointer",
-    backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "right 10px center",
-    backgroundSize: "16px",
-    transition: "all 0.2s ease-in-out",
-    minWidth: "220px"
-  }}
+              style={{
+                backgroundColor: "#f7f7f7",
+                color: "#333",
+                padding: "10px 16px",
+                fontSize: "16px",
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+                appearance: "none",
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                cursor: "pointer",
+                backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right 10px center",
+                backgroundSize: "16px",
+                transition: "all 0.2s ease-in-out",
+                minWidth: "220px"
+              }}
 
             >
               <option value="">Select Body Shape Type</option>
@@ -245,92 +245,92 @@ function HomePage() {
             </select>
           </div>
 
-         {showMaleShapes && (
-  <div style={styles.cardsWrapper}>
-    {[
-      {
-        title: "Rectangle",
-        desc: "Uniform shoulder, waist, and hips. Opt for layers and structure.",
-        img: "/assets/shapes/recmale.jpg"
-      },
-      {
-        title: "Triangle",
-        desc: "Wider hips than shoulders. Use shoulder pads and darker bottoms.",
-        img: "/assets/shapes/trimale.jpg"
-      },
-      {
-        title: "Inverted Triangle",
-        desc: "Broad shoulders and narrow hips. Focus on lower body volume.",
-        img: "/assets/shapes/intrimalejpg.jpg"
-      },
-      {
-        title: "Oval",
-        desc: "Full midsection. Choose V-necks and structured outerwear.",
-        img: "/assets/shapes/ovalmale.jpg"
-      },
-     
-      {
-        title: "Trapezoid",
-        desc: "Balanced and athletic. Almost all styles suit this shape.",
-        img: "/assets/shapes/trapmale.jpg"
-      }
-    ].map((shape, idx) => (
-      <div style={styles.card} key={idx}>
-        <img src={shape.img} alt={shape.title} style={styles.icon} />
-        <div style={styles.cardTitle}>{shape.title}</div>
-        <div style={styles.cardText}>{shape.desc}</div>
-      </div>
-    ))}
-  </div>
-)}
+          {showMaleShapes && (
+            <div style={styles.cardsWrapper}>
+              {[
+                {
+                  title: "Rectangle",
+                  desc: "Uniform shoulder, waist, and hips. Opt for layers and structure.",
+                  img: "/assets/shapes/recmale.jpg"
+                },
+                {
+                  title: "Triangle",
+                  desc: "Wider hips than shoulders. Use shoulder pads and darker bottoms.",
+                  img: "/assets/shapes/trimale.jpg"
+                },
+                {
+                  title: "Inverted Triangle",
+                  desc: "Broad shoulders and narrow hips. Focus on lower body volume.",
+                  img: "/assets/shapes/intrimalejpg.jpg"
+                },
+                {
+                  title: "Oval",
+                  desc: "Full midsection. Choose V-necks and structured outerwear.",
+                  img: "/assets/shapes/ovalmale.jpg"
+                },
 
-{showFemaleShapes && (
-  <div style={styles.cardsWrapper}>
-    {[
-      {
-        title: "Pear",
-        desc: "Wider hips than bust. Highlight shoulders with ruffles.",
-        img: "/assets/shapes/pearfemale.jpg"
-      },
-      {
-        title: "Hourglass",
-        desc: "Balanced bust and hips with a defined waist. Use fitted styles.",
-        img: "/assets/shapes/hourfemale.jpg"
-      },
-      {
-        title: "Rectangle",
-        desc: "Minimal curves. Add volume with flared dresses and belts.",
-        img: "/assets/shapes/recfemale.jpg"
-      },
-      {
-        title: "Apple",
-        desc: "Fuller midsection. V-necks and flowy tops flatter.",
-        img: "/assets/shapes/applefemale.jpg"
-      },
-      {
-        title: "Diamond",
-        desc: "Wider midsection and narrow shoulders. Accentuate neckline.",
-        img: "/assets/shapes/diamondfemale.png"
-      },
-      {
-        title: "Inverted Triangle",
-        desc: "Broader shoulders and narrow hips. Choose A-line skirts.",
-        img: "/assets/shapes/intrifemale.jpg"
-      }
-    ].map((shape, idx) => (
-      <div style={styles.card} key={idx}>
-        <img src={shape.img} alt={shape.title} style={styles.icon} />
-        <div style={styles.cardTitle}>{shape.title}</div>
-        <div style={styles.cardText}>{shape.desc}</div>
-      </div>
-    ))}
-  </div>
-)}
+                {
+                  title: "Trapezoid",
+                  desc: "Balanced and athletic. Almost all styles suit this shape.",
+                  img: "/assets/shapes/trapmale.jpg"
+                }
+              ].map((shape, idx) => (
+                <div style={styles.card} key={idx}>
+                  <img src={shape.img} alt={shape.title} style={styles.icon} />
+                  <div style={styles.cardTitle}>{shape.title}</div>
+                  <div style={styles.cardText}>{shape.desc}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {showFemaleShapes && (
+            <div style={styles.cardsWrapper}>
+              {[
+                {
+                  title: "Pear",
+                  desc: "Wider hips than bust. Highlight shoulders with ruffles.",
+                  img: "/assets/shapes/pearfemale.jpg"
+                },
+                {
+                  title: "Hourglass",
+                  desc: "Balanced bust and hips with a defined waist. Use fitted styles.",
+                  img: "/assets/shapes/hourfemale.jpg"
+                },
+                {
+                  title: "Rectangle",
+                  desc: "Minimal curves. Add volume with flared dresses and belts.",
+                  img: "/assets/shapes/recfemale.jpg"
+                },
+                {
+                  title: "Apple",
+                  desc: "Fuller midsection. V-necks and flowy tops flatter.",
+                  img: "/assets/shapes/applefemale.jpg"
+                },
+                {
+                  title: "Diamond",
+                  desc: "Wider midsection and narrow shoulders. Accentuate neckline.",
+                  img: "/assets/shapes/diamondfemale.png"
+                },
+                {
+                  title: "Inverted Triangle",
+                  desc: "Broader shoulders and narrow hips. Choose A-line skirts.",
+                  img: "/assets/shapes/intrifemale.jpg"
+                }
+              ].map((shape, idx) => (
+                <div style={styles.card} key={idx}>
+                  <img src={shape.img} alt={shape.title} style={styles.icon} />
+                  <div style={styles.cardTitle}>{shape.title}</div>
+                  <div style={styles.cardText}>{shape.desc}</div>
+                </div>
+              ))}
+            </div>
+          )}
 
 
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
